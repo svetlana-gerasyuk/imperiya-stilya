@@ -1,0 +1,16 @@
+/* Мультивыбор услуг в форме записи (после style-build запускать lab/multi.py): галочки, сводка, подсказка */
+.s-chip--row { justify-content: flex-start; gap: 12px; }
+.s-chip--row > span { flex: 1; }
+.s-chip--row::before { content: ""; flex: none; width: 20px; height: 20px; border-radius: 6px; border: 1.5px solid var(--c-ink-soft); box-sizing: border-box; transition: background .15s, border-color .15s; }
+.s-chip--row:has(input:checked)::before { background: var(--c-accent); border-color: var(--c-accent); }
+.s-chip--row:has(input:checked)::after { content: ""; position: absolute; left: 20px; top: 50%; width: 5px; height: 10px; border: solid var(--c-accent-ink); border-width: 0 2px 2px 0; transform: translateY(-64%) rotate(45deg); }
+.s-chip--row:has(input:checked) { border-color: var(--c-accent); box-shadow: 0 0 0 1px var(--c-accent); }
+.s-legend-hint { text-transform: none; letter-spacing: .02em; font-weight: 500; color: var(--c-ink-soft); font-size: .8rem; }
+.s-sum { display: grid; gap: 10px; padding: 14px 16px; border: 1px solid var(--hair); border-radius: 12px; font-size: .93rem; line-height: 1.4; }
+.s-sum p { margin: 0; }
+.s-sum b { display: block; margin-bottom: 1px; font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--c-ink-soft); }
+.s-hint { margin: 0; font-size: .88rem; color: var(--c-accent-deep, var(--c-accent)); }
+.s-hint.is-nudge { animation: s-nudge .5s; }
+@keyframes s-nudge { 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+.s-send .s-btn[aria-disabled="true"] { opacity: .45; cursor: not-allowed; }
+.s-hero__photo img { object-position: 50% 38%; }
